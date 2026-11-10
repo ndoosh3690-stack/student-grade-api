@@ -32,5 +32,10 @@ private static final Logger logger = LoggerFactory.getLogger(StudentController.c
         students.add(s);
         logger.info("Added student: id={}, name={}", s.getId(), s.getName()); 
         return s; 
-    } 
+    }
+@GetMapping("/health") 
+public Map<String, String> health() { 
+logger.info("Health check called"); 
+return Map.of("status", "UP"); 
+}
 }
