@@ -4,8 +4,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*; 
 import java.util.*; 
   
-@RestController //     class api controller
-@RequestMapping("/api")   //set base url path
+@RestController 
+@RequestMapping("/api")   
 public class StudentController { 
 private static final Logger logger = LoggerFactory.getLogger(StudentController.class); 
     private List<Student> students = new ArrayList<>(List.of( 
