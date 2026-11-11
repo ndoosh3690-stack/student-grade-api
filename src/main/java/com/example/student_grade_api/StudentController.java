@@ -4,8 +4,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*; 
 import java.util.*; 
   
-@RestController 
-@RequestMapping("/api") 
+@RestController //     class api controller
+@RequestMapping("/api")   //set base url path
 public class StudentController { 
 private static final Logger logger = LoggerFactory.getLogger(StudentController.class); 
     private List<Student> students = new ArrayList<>(List.of( 
@@ -26,14 +26,14 @@ private static final Logger logger = LoggerFactory.getLogger(StudentController.c
             .orElse(null); 
     } 
   
-    @PostMapping("/students") 
+    @PostMapping("/students")  //create data 
     public Student add(@RequestBody Student s) { 
         s.setId((long) (students.size() + 1)); 
         students.add(s);
         logger.info("Added student: id={}, name={}", s.getId(), s.getName()); 
         return s; 
     }
-@GetMapping("/health") 
+    @GetMapping("/health")  // read data
 public Map<String, String> health() { 
 logger.info("Health check called"); 
 return Map.of("status", "UP"); 
